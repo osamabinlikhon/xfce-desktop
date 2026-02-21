@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: xfce-desktop
+    env: docker
+    region: oregon
+    plan: small
+    buildCommand: # Build is handled by Dockerfile
+    startCommand: ./start.sh
+    envVars:
+      - key: VNC_PASSWORD
+        value: huggingface
+      - key: RESOLUTION
+        value: "1280x720"
+      - key: VNC_PORT
+        value: "5900"
+    healthCheckPath: /
